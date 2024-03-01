@@ -1,10 +1,10 @@
-# Juan Berger Neovim COnfiguration
+# My Neovim Configuration
 
 This is the neovim configuration I am currently using. It is built on top of lazy-vim and it combines both deferred plugin loading and lazy loading to produce an incredibly fast start_time (the contents of the file are show immediately, while some plugins are finishing loading up).
 
-Currently, the nvim configuation looks something like this:
+### Preview
 
-Below is a list of the plugins I am currently using (apart from the ones that come with lazy-vim):
+### Plugins
 - https://github.com/jackMort/ChatGPT.nvim
 - https://github.com/hrsh7th/nvim-cmp
 - https://github.com/zbirenbaum/copilot.lua
