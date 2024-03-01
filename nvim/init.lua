@@ -1,11 +1,11 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-vim.g.mapleader = " " -- you can also use any other key here instead of space, such as ","
+-- Set Leader key
+vim.g.mapleader = " "
 
+-- Define Keymaps
 vim.api.nvim_set_keymap("v", "<C-S-C>", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-S-C>", '"+yy', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-S-V>", '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-S-V>", '"+p', { noremap = true, silent = true })
-
 vim.api.nvim_set_keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-c>", '"+yy', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
@@ -15,19 +15,20 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-
+-- Toggle NvimTree
 vim.api.nvim_set_keymap("n", "<leader>b", ":NvimTreeToggle<CR>", {
   noremap = true,
   silent = true,
 })
-
 vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFocus<CR>", {
   noremap = true,
   silent = true,
 })
 
+-- Toggle ChatGPT
 vim.api.nvim_set_keymap("n", "<leader>z", ":ChatGPT<CR>", { noremap = true, silent = true })
 
+-- Set Number Option
 vim.wo.number = true
 
 -- Lua rocks package path
@@ -39,10 +40,12 @@ vim.opt.laststatus = 0
 
 -- vim.opt.wrap = true
 vim.cmd("set wrap")
+
+-- scrolling settings
 vim.opt.sidescroll = 0
 vim.opt.sidescrolloff = 0
 
-  vim.api.nvim_exec(
+vim.api.nvim_exec(
     [[  
   augroup WrapGroup  
     autocmd!  
@@ -50,8 +53,9 @@ vim.opt.sidescrolloff = 0
   augroup END  
   ]],
     false
-  )
--- Defer some plugins
+)
+
+-- Combine defer plugins and lazy loading for faster startup
 vim.defer_fn(function()
   require("config.lazy")
   vim.api.nvim_exec(
@@ -90,8 +94,10 @@ vim.defer_fn(function()
 
   require("nvim-treesitter").setup()
 
+  -- Optional
+  -------------------------------------------------------------------------------------
+  -- View LaTeX equations inside Neovim
   -- require("nabla").enable_virt({ autogen = true, silent = true })
-  -- 
   -- vim.api.nvim_set_keymap("n", "<leader>m", ':lua require("nabla").popup()<CR>', { noremap = true, silent = true })
   -- vim.api.nvim_set_keymap("n", "<leader>mm", ':lua require("nabla").enable_virt()<CR>', { noremap = true, silent = true })
   -- vim.api.nvim_set_keymap(
@@ -101,6 +107,7 @@ vim.defer_fn(function()
   --   { noremap = true, silent = true }
   -- )
 
+  -- View Images inside Neovim (requires ImageMagick)
   -- default config
   -- require("image").setup({
   --   backend = "kitty",
@@ -134,14 +141,21 @@ vim.defer_fn(function()
   --   -- resize image files as images when opened
   --   hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" },
   -- })
+
+  -- Set Preferred Colors
   vim.cmd("highlight Normal guibg=black")
   vim.cmd("highlight Comment guifg=#5AE3FF")
   vim.cmd("highlight LineNr guifg=White")
-  vim.wo.cursorline = false
-vim.cmd("set wrap")
-vim.opt.sidescroll = 0
-vim.opt.sidescrolloff = 0
 
+  -- Cursorline
+  vim.wo.cursorline = false
+
+  -- Text Wrap and Scrolling Settings
+  vim.cmd("set wrap")
+  vim.opt.sidescroll = 0
+  vim.opt.sidescrolloff = 0
+
+  -- Line Wrapping autocmd
   vim.api.nvim_exec(
     [[  
   augroup WrapGroup  
@@ -152,13 +166,3 @@ vim.opt.sidescrolloff = 0
     false
   )
 end, 0)
-
--- Not needed now, just for when using lazy plugins
--- require("treesitter-context").setup({
---   enable = false, -- Disable this plugin
--- })
-
--- Add your highlight commands here
-
--- require("cmp").setup({ enabled = false })
--- vim.opt.relativenumber = false -- Disable relative line numbers
