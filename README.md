@@ -1,6 +1,6 @@
 # My Neovim Configuration
 
-This is the neovim configuration I am currently using. It is built on top of lazy-vim and it combines both deferred plugin loading and lazy loading to produce an incredibly fast start_time (the contents of the file are show immediately, while some plugins are finishing loading up). In order to be able to preview images inside nvim and directly in the terminal, Kitty terminal and ImageMagick are recommended.
+This is the Neovim configuration I am currently using. It is built on top of lazy-vim and it combines both deferred plugin loading and lazy loading to produce an incredibly fast start_time (the contents of the file are show immediately, while some plugins are finishing loading up). In order to be able to preview images inside nvim and directly in the terminal, Kitty terminal and ImageMagick are recommended.
 
 ### Preview
 ![neovim_preview](neovim_preview.gif)
