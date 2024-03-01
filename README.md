@@ -2,7 +2,7 @@
 
 This is the neovim configuration I am currently using. It is built on top of lazy-vim and it combines both deferred plugin loading and lazy loading to produce an incredibly fast start_time (the contents of the file are show immediately, while some plugins are finishing loading up).
 
-### Preview neovim_preview.gif (in current directory)
+### Preview
 ![neovim_preview](neovim_preview.gif)
 
 ### Plugins
